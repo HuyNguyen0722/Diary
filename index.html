@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Quản Lý Thu Chi Nhóm</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper" id="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Thu Chi Nhóm</h2>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="nav-item active" data-section="overview">
+                        <i class="fas fa-home"></i> Tổng Quan
+                    </li>
+                    <li class="nav-item" data-section="transactions">
+                        <i class="fas fa-list-alt"></i> Giao Dịch
+                    </li>
+                    <li class="nav-item" data-section="add-transaction">
+                        <i class="fas fa-plus-circle"></i> Thêm Giao Dịch
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <i class="fas fa-users"></i> Nhóm Chi Tiêu
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h2>Chào mừng đến với Dashboard Quản Lý Thu Chi Nhóm!</h2>
+            </header>
+
+            <section id="overview-section" class="content-section active">
+                <h3>Tổng Quan Tài Chính</h3>
+                <div class="summary-cards">
+                    <div class="card income-card">
+                        <h4>Tổng Tiền Thu</h4>
+                        <p id="total-income-card">0 VNĐ</p>
+                    </div>
+                    <div class="card expense-card">
+                        <h4>Tổng Tiền Chi</h4>
+                        <p id="total-expense-card">0 VNĐ</p>
+                    </div>
+                    <div class="card balance-card">
+                        <h4>Số Dư Hiện Tại</h4>
+                        <p id="current-balance-card">0 VNĐ</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="add-transaction-section" class="content-section">
+                <h3>Thêm Giao Dịch Mới</h3>
+                <div class="form-container">
+                    <div class="transaction-type-selection">
+                        <input type="radio" id="type-income" name="transaction-type" value="income" checked>
+                        <label for="type-income">Thu</label>
+                        <input type="radio" id="type-expense" name="transaction-type" value="expense">
+                        <label for="type-expense">Chi</label>
+                    </div>
+                    <input type="text" id="transaction-name" placeholder="Tên giao dịch" required>
+                    <input type="number" id="transaction-amount" placeholder="Số tiền" required>
+                    <input type="date" id="transaction-date" required>
+                    <button id="add-transaction-btn">Thêm Giao Dịch</button>
+                </div>
+            </section>
+
+            <section id="transactions-section" class="content-section">
+                <h3>Danh Sách Giao Dịch</h3>
+                <div class="table-container">
+                    <table id="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Loại</th>
+                                <th>Tên Giao Dịch</th>
+                                <th>Số Tiền</th>
+                                <th>Ngày</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactions-table-body">
+                            </tbody>
+                    </table>
+                </div>
+                <div class="table-summary">
+                    <strong>Tổng Tiền Thu:</strong> <span id="total-income-table">0 VNĐ</span><br>
+                    <strong>Tổng Tiền Chi:</strong> <span id="total-expense-table">0 VNĐ</span><br>
+                    <strong>Số Dư Hiện Tại:</strong> <span id="current-balance-table">0 VNĐ</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
